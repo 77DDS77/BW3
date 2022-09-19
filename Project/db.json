@@ -1,0 +1,35 @@
+{
+  "users":[
+    {
+      "id": 1,
+      "name": "Mario",
+      "lastname": "Rossi",
+      "username": "Mr.RedXXX",
+      "avatar": "male",
+      "email": "mario.rossi@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "posts":[
+    {
+      "id": 1,
+      "ownerId": 1,
+      "title": "Post 1",
+      "content": "Content 1",
+      "date": "2022-09-18T09:32:57.507Z",
+      "upvotes": 217,
+      "edited": false
+    }
+  ],
+  "comments":[
+    {
+      "id": 1,
+      "ownerId": 1,
+      "title": "Comment 1",
+      "content": "Content 1",
+      "date":"2022-09-18T09:32:57.507Z",
+      "upvotes": 217,
+      "edited": false
+    }
+  ]
+}
