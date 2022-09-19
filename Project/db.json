@@ -1,5 +1,5 @@
 {
-  "users":[
+  "users": [
     {
       "id": 1,
       "name": "Mario",
@@ -8,9 +8,19 @@
       "avatar": "male",
       "email": "mario.rossi@gmail.com",
       "password": "123456"
+    },
+    {
+      "email": "davide.dds.dalsanto@gmail.com",
+      "password": "$2a$10$yvQ29oZo7ryDmze7U2VWSOkDja31lKLdOisVhtvHF47lgVEEIJusu",
+      "name": "Davide",
+      "lastname": "Dal Santo",
+      "username": "DDS",
+      "slug": "dds",
+      "avatar": null,
+      "id": 2
     }
   ],
-  "posts":[
+  "posts": [
     {
       "id": 1,
       "ownerId": 1,
@@ -21,13 +31,13 @@
       "edited": false
     }
   ],
-  "comments":[
+  "comments": [
     {
       "id": 1,
       "ownerId": 1,
       "title": "Comment 1",
       "content": "Content 1",
-      "date":"2022-09-18T09:32:57.507Z",
+      "date": "2022-09-18T09:32:57.507Z",
       "upvotes": 217,
       "edited": false
     }
