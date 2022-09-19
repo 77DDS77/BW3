@@ -26,8 +26,11 @@
       </div>
 
       <div class="form-floating mb-2">
-        <select class="form-select" aria-label="Default select example" id="floatingInput4">
-          <option selected>Choose your gender:</option>
+        <select class="form-select"
+          id="floatingInput4"
+          formControlName="avatar"
+        >
+          <option value="null">Choose your gender:</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
