@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     this.getPosts()
   }
 
+
   getPosts() {
     this.postSvc.getAllPosts().subscribe(
       {
@@ -28,3 +29,8 @@ export class HomeComponent implements OnInit {
     )
   }
 }
+
+  public isCollapsed = false;
+
+}
+
