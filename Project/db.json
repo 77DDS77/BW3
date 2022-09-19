@@ -23,11 +23,29 @@
   "posts": [
     {
       "id": 1,
-      "ownerId": 1,
+      "ownerId": 2,
       "title": "Post 1",
       "content": "Content 1",
       "date": "2022-09-18T09:32:57.507Z",
       "upvotes": 217,
+      "edited": false
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "title": "Post 2",
+      "content": "Content 2",
+      "date": "2022-09-18T16:21:57.507Z",
+      "upvotes": 2,
+      "edited": false
+    },
+    {
+      "id": 3,
+      "ownerId": 2,
+      "title": "Post 3",
+      "content": "Content 3",
+      "date": "2022-09-18T12:21:57.507Z",
+      "upvotes": 5,
       "edited": false
     }
   ],
