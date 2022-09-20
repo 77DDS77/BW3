@@ -1,15 +1,19 @@
 <p>post works!</p>
-<div *ngFor="let post of posts" class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+<div *ngFor="let post of posts" class="card m-3">
+    <div class="card-head d-flex justify-content-row align-items-center">
+        <img class="avatar m-2" src="../../../../assets/gender-photo/male.svg" alt="">
+        <!-- <img src={{findAuthor(post).avatar}} alt="avatar not working"> !-->
+        <h3 class="m-2">{{ findAuthor(post).username }}</h3>
+    </div>
     <div class="card-body">
-        <div class="head d-flex justify-content-between">
+        <div class="d-flex justify-content-between">
             <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-title">{{ post.date }}</p>
         </div>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">{{ post.content }}</p>
 
         <div class="btns d-flex justify-content-between">
-            <a  class="btn btn-success mx-2">like</a>
+            <a class="btn btn-success mx-2">like</a>
             <a (click)="log()" (click)="findAuthor(post)" class="btn btn-primary mx-2">comment</a>
         </div>
 
