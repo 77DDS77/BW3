@@ -12,26 +12,19 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user!:User;
+  user:User = this.auth.getLoggedUser();
   posts:Post[] = [];
 
   constructor(
-    private userSvc: UserService,
     private auth:AuthService,
     private postSvc:PostService
   ) { }
 
   ngOnInit(): void {
-    this.userSvc.getUserById(this.auth.getLoggedUser().id)
-    .subscribe(user =>{
-      if(user){
-        this.user = user
-        this.postSvc.getPostByOwner(user.id)
-        .subscribe(posts => {
-          this.posts = posts
-        })
-      }
-      });
+    this.postSvc.getPostByOwner(this.user.id)
+    .subscribe(posts => {
+      this.posts = posts.reverse();
+    })
   }
 
 }

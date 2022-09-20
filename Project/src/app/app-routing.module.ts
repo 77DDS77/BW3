@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NavigationGuard } from './Guards/navigation.guard';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
@@ -15,11 +16,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./Pages/home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./Pages/home/home.module').then(m => m.HomeModule),
+    canActivate: [NavigationGuard]
   },
   {
     path: 'profile/:name',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [NavigationGuard]
   }
 
 ];
