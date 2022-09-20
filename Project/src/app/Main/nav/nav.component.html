@@ -24,8 +24,11 @@
         <li class="nav-item dropdown bg-dark" ngbDropdown>
           <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Settings</a>
           <ul class="dropdown-menu mb-3" data-bs-popper="static" ngbDropdownMenu>
-            <li><a ngbDropdownItem class="dropdown-item" [routerLink]="">Edit Profile</a></li>
-            <li><a (click)="openVerticallyCentered(content)" ngbDropdownItem class="dropdown-item">Logout</a></li>
+            <li><a disabled ngbDropdownItem class="dropdown-item" [routerLink]="">Edit Profile</a></li>
+            <li><a (click)="openVerticallyCentered(content)"
+              ngbDropdownItem class="dropdown-item"
+              [disabled]="checkIfUserLogged() == false"
+              >Logout</a></li>
           </ul>
         </li>
 
