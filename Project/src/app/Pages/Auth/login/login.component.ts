@@ -30,10 +30,9 @@ export class LoginComponent implements OnInit {
       this.authSrv.login(this.form.value)
       .subscribe(res => {
         this.authSrv.saveAccessData(res)
+        this.router.navigate(['/home']);
       })
     }else{
-      console.log('error form is invalid');
-
       this.formIsValid = false;
     }
   }

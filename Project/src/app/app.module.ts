@@ -10,20 +10,27 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Interceptors/auth.interceptor';
 import { FooterComponent } from './Main/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './Pages/profile/profile.component';
+import { NavComponent } from './Main/nav/nav.component';
+import { PostComponent } from './Main/post/post.component';
+import { HomeModule } from './Pages/home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HomeModule
   ],
   providers: [
     {
