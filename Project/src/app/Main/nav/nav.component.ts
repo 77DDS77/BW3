@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,11 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  public isMenuCollapsed = true;
+  isMenuCollapsed = true;
+  userName!: string
+  userNameParam:string = this.auth.isUserLogged() ? this.auth.getLoggedUser().slug : '';
 
-  constructor() { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck(): void {
+    if(this.checkIfUserLogged()){
+      this.userName = this.getUserName();
+    }
+  }
+
+  checkIfUserLogged():boolean{
+    return this.auth.isUserLogged();
+  }
+
+  getUserName():string{
+    return this.auth.getLoggedUser().name;
+  }
+
+  openVerticallyCentered(content:any) {
+    this.modalService.open(content, { centered: true })
+  }
+
+  logOut():void{
+    this.auth.logOut();
+    this.router.navigate(['/'])
   }
 
 }

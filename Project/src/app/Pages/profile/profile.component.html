@@ -1,0 +1,19 @@
+
+<div class="container my-3">
+  <div class="row  align-items-center">
+    <div class="col-3">
+      <h3 class="text-center">{{user.username}}</h3>
+      <img [src]="user.avatar" alt="">
+    </div>
+    <div class="col-9">
+      <div class="my-auto">
+
+        <p class="fw-semibold">Name: <span class="fw-normal">{{user.name}}</span></p>
+        <p class="fw-semibold">Lastname: <span class="fw-normal">{{user.lastname}}</span></p>
+        <p class="fw-semibold">Email: <span class="fw-normal">{{user.email}}</span></p>
+
+      </div>
+    </div>
+  </div>
+  <app-post [posts]="posts"></app-post>
+</div>
