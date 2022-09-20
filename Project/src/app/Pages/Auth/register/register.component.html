@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container auth-container">
 
   <main class="form-signin m-auto">
     <form [formGroup]="form" (submit)="submit()">
@@ -24,6 +24,7 @@
         id="floatingInput3" placeholder="Your username">
         <label for="floatingInput3">Your username</label>
       </div>
+      <label *ngIf="checkValidity('username')" class="text-danger">*username already taken</label>
 
       <div class="form-floating mb-2">
         <select class="form-select"
@@ -31,9 +32,9 @@
           formControlName="avatar"
         >
           <option value="null">Choose your gender:</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="../../../../assets/gender-photo/male.svg">Male</option>
+          <option value="../../../../assets/gender-photo/female.svg">Female</option>
+          <option value="../../../../assets/gender-photo/other.svg">Other</option>
         </select>
         <label for="floatingInput4">Your gender</label>
       </div>
@@ -44,6 +45,7 @@
         id="floatingInput5" placeholder="name@example.com">
         <label for="floatingInput5">Email address</label>
       </div>
+      <label *ngIf="checkValidity('email')" class="text-danger">*username already taken</label>
 
       <div class="form-floating mb-2">
         <input formControlName="password"
@@ -53,7 +55,7 @@
       </div>
 
       <label *ngIf="isFormValid == false" class="text-danger">*Form is invalid</label>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+      <button [disabled]="form.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
       <a [routerLink]="['/']" class="w-30 btn btn-lg btn-primary my-2">Back to Login</a>
 
     </form>

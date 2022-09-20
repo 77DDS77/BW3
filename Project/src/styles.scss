@@ -3,6 +3,10 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+body{
+  background-color: #f5f5f5;
+}
+
 form .ng-invalid.ng-touched{
   border:1px solid red;
 }
@@ -10,9 +14,20 @@ form .ng-valid{
   border:1px solid green;
 }
 
+
+.auth-container {
+  min-width: 180px;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 8px 15px 20px 2px rgb(0 0 0 / 20%)
+
 .avatar {
   height: 4rem;
   border: 3px solid gray;
   border-radius: 2rem;
+
 }
 
