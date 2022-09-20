@@ -2,7 +2,7 @@
 
   <main class="form-signin m-auto">
     <form [formGroup]="form" (submit)="login()">
-      <h1 class="h3 mb-3 fw-normal">Login here:</h1>
+      <h1 class="h3 mb-3 fw-semibold">Login here:</h1>
 
       <div class="form-floating my-2">
         <input formControlName="email"
@@ -18,7 +18,7 @@
       </div>
 
       <label *ngIf="formIsValid == false" class="text-danger">*Form is invalid</label>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+      <button [disabled]="form.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
 
       <h5 class="mt-3 ms-2 fw-normal">Don't have an acount?</h5>
       <a [routerLink]="['/register']" class="w-100 btn btn-lg btn-primary mb-2">Register</a>
