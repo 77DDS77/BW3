@@ -18,7 +18,6 @@ import { CommentsComponent } from './comments/comments.component';
     HomeComponent,
     NewPostComponent,
     PostComponent,
-    NavComponent,
     CommentsComponent
   ],
   imports: [
