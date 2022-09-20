@@ -19,10 +19,7 @@ export class PostComponent implements OnInit {
     this.getUsers()
   }
 
-  log() {
-    console.log(this.posts)
-    console.log(this.users)
-  }
+
 
   getUsers(): void {
     this.userSvc.getAllUsers().subscribe(

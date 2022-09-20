@@ -34,8 +34,8 @@ export class CommentService {
     return this.http.delete<PostComment>(this.apiUrl + '/' + comment.id);
   }
 
-  getCommentByOwner(userId: number): Observable<PostComment[]> {
-    return this.http.get<PostComment[]>(this.apiUrl + '/?ownerId=' + userId);
+  getCommentByPost(postId: number): Observable<PostComment[]> {
+    return this.http.get<PostComment[]>(this.apiUrl + '/?postId=' + postId);
   }
 
 }
