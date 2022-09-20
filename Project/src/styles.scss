@@ -5,6 +5,13 @@
 
 body{
   background-color: #f5f5f5;
+  background-image: url(./sfondi/sfondo15.jpg);
+  background-size: cover;
+
+  background-position: 0 0;
+
+ background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 form .ng-invalid.ng-touched{
