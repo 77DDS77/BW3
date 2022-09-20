@@ -11,8 +11,6 @@ export class HomeComponent implements OnInit {
 
   posts:Post[] = []
 
-  public isCollapsed = false;
-
   constructor(private postSvc: PostService) { }
 
   ngOnInit(): void {
@@ -32,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 }
 
-  
+
 
 
 
