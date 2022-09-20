@@ -30,7 +30,7 @@ export class NewPostComponent implements OnInit {
       postTitle: new FormControl(null, [Validators.required, Validators.minLength(1)]),
       postContent: new FormControl(null, Validators.required),
       postOwner: new FormControl(this.auth.getLoggedUser().id),
-      date: new FormControl(null, Validators.required),
+
     })
 
   }
@@ -40,14 +40,20 @@ export class NewPostComponent implements OnInit {
 
       this.postSvc.addPost(
         new Post(
+          this.postform.value.postOwner,
+          this.auth.getLoggedUser().username,
           this.postform.value.postTitle,
           this.postform.value.postContent,
-          this.postform.value.postOwner,
+
+
 
 
           ))
       .subscribe(res => {
-        this.router.navigate(['/profile', this.auth.getLoggedUser().slug]);
+        console.log('ok')
+        console.log(res)
+
+       // this.router.navigate(['/profile', this.auth.getLoggedUser().slug]);
       })
 
     }else{
