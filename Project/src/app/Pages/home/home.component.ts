@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/Classes/post';
 import { PostService } from 'src/app/Services/post.service';
 
@@ -11,10 +12,14 @@ export class HomeComponent implements OnInit {
 
   posts:Post[] = []
 
-  constructor(private postSvc: PostService) { }
+  constructor(private postSvc: PostService, private router: Router) {
+    this.router.events.subscribe((event) => {
+      this.getPosts();
+    })
+  }
 
   ngOnInit(): void {
-    this.getPosts()
+
   }
 
 

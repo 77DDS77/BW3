@@ -8,7 +8,6 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Interceptors/auth.interceptor';
-import { NavComponent } from './Main/nav/nav.component';
 import { FooterComponent } from './Main/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent,
     FooterComponent
   ],
   imports: [

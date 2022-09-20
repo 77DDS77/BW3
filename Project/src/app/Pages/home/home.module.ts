@@ -6,8 +6,9 @@ import { HomeComponent } from './home.component';
 import { NewPostComponent } from './new-post/new-post.component';
 
 import { PostComponent } from './post/post.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from 'src/app/Main/nav/nav.component';
 
 
 
@@ -15,12 +16,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HomeComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
 
   ]

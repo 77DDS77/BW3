@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  public isMenuCollapsed = true;
+
   constructor() { }
 
   ngOnInit(): void {

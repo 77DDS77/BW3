@@ -14,7 +14,6 @@ import { PostService } from 'src/app/Services/post.service';
 export class NewPostComponent implements OnInit {
 
   postform!: FormGroup
-  submitBtn!:HTMLButtonElement
   formIsValid!: boolean
 
 
@@ -29,8 +28,6 @@ export class NewPostComponent implements OnInit {
     this.postform = new FormGroup({
       postTitle: new FormControl(null, [Validators.required, Validators.minLength(1)]),
       postContent: new FormControl(null, Validators.required),
-      postOwner: new FormControl(this.auth.getLoggedUser().id),
-
     })
 
   }
@@ -40,20 +37,13 @@ export class NewPostComponent implements OnInit {
 
       this.postSvc.addPost(
         new Post(
-          this.postform.value.postOwner,
+          this.auth.getLoggedUser().id,
           this.auth.getLoggedUser().username,
           this.postform.value.postTitle,
           this.postform.value.postContent,
-
-
-
-
           ))
       .subscribe(res => {
-        console.log('ok')
-        console.log(res)
-
-       // this.router.navigate(['/profile', this.auth.getLoggedUser().slug]);
+       this.router.navigate(['/home']);
       })
 
     }else{
