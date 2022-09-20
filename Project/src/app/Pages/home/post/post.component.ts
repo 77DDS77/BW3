@@ -35,8 +35,9 @@ export class PostComponent implements OnInit {
     )
   }
 
-  findAuthor(post: Post): void {
-    this.users.filter(user => user.id == post.ownerId)
+  findAuthor(post: Post): User {
+    console.log(this.users.filter(user => user.id === post.ownerId)[0])
+    return this.users.filter(user => user.id == post.ownerId)[0]
   }
 
 }
