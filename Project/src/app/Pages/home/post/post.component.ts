@@ -19,10 +19,7 @@ export class PostComponent implements OnInit {
     this.getUsers()
   }
 
-  log() {
-    console.log(this.posts)
-    console.log(this.users)
-  }
+
 
   getUsers(): void {
     this.userSvc.getAllUsers().subscribe(
@@ -35,9 +32,5 @@ export class PostComponent implements OnInit {
     )
   }
 
-  findAuthor(post: Post): User {
-    console.log(this.users.filter(user => user.id === post.ownerId)[0])
-    return this.users.filter(user => user.id == post.ownerId)[0]
-  }
 
 }

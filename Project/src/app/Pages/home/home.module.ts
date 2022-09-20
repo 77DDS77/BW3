@@ -9,6 +9,7 @@ import { PostComponent } from './post/post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from 'src/app/Main/nav/nav.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
@@ -17,7 +18,8 @@ import { NavComponent } from 'src/app/Main/nav/nav.component';
     HomeComponent,
     NewPostComponent,
     PostComponent,
-    NavComponent
+    NavComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,
