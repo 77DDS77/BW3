@@ -11,6 +11,7 @@ import { PostService } from 'src/app/Services/post.service';
 export class HomeComponent implements OnInit {
 
   posts:Post[] = []
+  newPostPage: boolean = false
 
   constructor(private postSvc: PostService, private router: Router) {
     this.router.events.subscribe((event) => {
@@ -23,6 +24,8 @@ export class HomeComponent implements OnInit {
   }
 
 
+
+
   getPosts() {
     this.postSvc.getAllPosts().subscribe(
       {
@@ -32,6 +35,20 @@ export class HomeComponent implements OnInit {
         error: error => console.log(error)
       }
     )
+  }
+
+  toggleNewPost() {
+    if(
+      this.newPostPage == false
+    ){
+      this.router.navigate([ '/home', 'new-post'])
+      this.newPostPage = true
+
+    }else{
+
+      this.router.navigate([ '/home'])
+      this.newPostPage = false
+    }
   }
 }
 

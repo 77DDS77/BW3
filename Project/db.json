@@ -103,11 +103,32 @@
   "comments": [
     {
       "id": 1,
-      "ownerId": 1,
+      "postId": 8,
+      "ownerId": 2,
       "title": "Comment 1",
       "content": "Content 1",
       "date": "2022-09-18T09:32:57.507Z",
-      "upvotes": 217,
+      "upvotes": 2111,
+      "edited": false
+    },
+    {
+      "id": 2,
+      "postId": 8,
+      "ownerId": 2,
+      "title": "Comment 2",
+      "content": "Content 2",
+      "date": "2022-09-18T09:32:57.507Z",
+      "upvotes": 23,
+      "edited": false
+    },
+    {
+      "id": 3,
+      "postId": 8,
+      "ownerId": 1,
+      "title": "Comment 3",
+      "content": "Content 3",
+      "date": "2022-09-18T09:32:57.507Z",
+      "upvotes": 22,
       "edited": false
     }
   ]

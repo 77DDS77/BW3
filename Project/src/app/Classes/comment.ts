@@ -1,5 +1,6 @@
 export class PostComment {
   id!:number;
+  postId: number;
   ownerId: number;
   title:string;
   content:string;
@@ -8,10 +9,12 @@ export class PostComment {
   edited: boolean;
 
   constructor(
+    postId: number,
     ownerId: number,
     title: string,
-    content: string,
+    content: string
   ){
+    this.postId = postId;
     this.ownerId = ownerId;
     this.title = title;
     this.content = content;
