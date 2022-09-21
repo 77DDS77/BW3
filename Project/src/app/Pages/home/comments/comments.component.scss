@@ -1,7 +1,15 @@
 .card-comment {
     width: 95%;
     box-shadow: 8px 15px 20px 2px rgb(0 0 0 / 20%);
-    border-radius: 0.35rem;
+    height: 7rem;
 }
 
+.btns {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 
+    .button {
+        cursor: pointer;
+    }
+}
