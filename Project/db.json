@@ -18,6 +18,16 @@
       "slug": "dds",
       "avatar": "../../../../assets/gender-photo/male.svg",
       "id": 2
+    },
+    {
+      "email": "fabiola@gmail.com",
+      "password": "$2a$10$.f.yD5tMiuvq9dRfdUX.B.q3iryaO5DqxP2R1C0S.j7Oqxv2fxCT6",
+      "name": "Fabiola",
+      "lastname": "Barone",
+      "username": "Fabi",
+      "slug": "fabi",
+      "avatar": "../../../../assets/gender-photo/female.svg",
+      "id": 3
     }
   ],
   "posts": [
@@ -98,6 +108,56 @@
       "upvotes": 0,
       "edited": false,
       "id": 8
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "Fabi",
+      "title": "Buongiornissimoooo",
+      "content": "Kaffèèè????",
+      "date": "2022-09-21T09:50:56.733Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 9
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "Fabi",
+      "title": "Poesia \"A tutte le donne\" di Alda Merini",
+      "content": "A tutte le donne\nFragile, opulenta donna, matrice del paradiso\nsei un granello di colpa\nanche agli occhi di Dio\nmalgrado le tue sante guerre\nper l’emancipazione.\nSpaccarono la tua bellezza\ne rimane uno scheletro d’amore\nche però grida ancora vendetta\ne soltanto tu riesci\nancora a piangere,\npoi ti volgi e vedi ancora i tuoi figli,\npoi ti volti e non sai ancora dire\ne taci meravigliata\ne allora diventi grande come la terra\ne innalzi il tuo canto d’amore.",
+      "date": "2022-09-21T09:56:50.519Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 10
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "Fabi",
+      "title": "\"Miracle\", a poem by Nikita Gill",
+      "content": "It took 3.8 billion years \n\nof triumphant evolution,\n\nremarkable collision, \n\nan unbelievable confluence \n\nmade by sheer will and influence \n\nof this infinite universe \n\nand all of the stars \n\nto get you here.\n\n \n\nI hope you never doubt again\n\nthat even when you are in pain,\n\nthat you are a miracle, \n\nthat every part of you is incredible.",
+      "date": "2022-09-21T10:22:01.106Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 11
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "Fabi",
+      "title": "Hello from the other side",
+      "content": "How are you?",
+      "date": "2022-09-21T12:21:11.910Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 12
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "Fabi",
+      "title": "\"For the Cynic\" by Nikita Gill",
+      "content": "And somehow, \n\nyou still \n\ngenuinely think \n\nthat magic does not exist,\n\nthat fairytales aren’t real,\n\n \n\nthat the way people\n\nfind each other \n\nat just the right time\n\nat just the right moment\n\nisn’t the most powerful sorcery. ",
+      "date": "2022-09-21T12:43:18.293Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 13
     }
   ],
   "comments": [
