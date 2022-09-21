@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostComment } from 'src/app/Classes/comment';
 import { Post } from 'src/app/Classes/post';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -17,12 +18,16 @@ export class CommentsComponent implements OnInit {
   form!: FormGroup;
   formIsValid!: boolean
 
-  constructor(private commentSvc:CommentService, private authSvc:AuthService) { }
+  constructor(
+    private commentSvc:CommentService,
+    private authSvc:AuthService,
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit(): void {
     this.commentSvc.getCommentByPost(this.postId).subscribe(
       res => {
-        this.comments = res     
+        this.comments = res
     })
     this.form = new FormGroup({
       content: new FormControl(null, Validators.required)
@@ -35,7 +40,7 @@ export class CommentsComponent implements OnInit {
       res => console.log(res)
     )
   }
-  
+
   canEditComment(comment:PostComment):boolean {
     return this.authSvc.getLoggedUser().id == comment.ownerId ? true : false
   }
@@ -67,6 +72,21 @@ export class CommentsComponent implements OnInit {
         this.form.reset()
       })
     }
+  }
+
+  // MODAL METHODS
+  openVerticallyCentered(content:any, comment:PostComment) {
+
+    this.modalService.open(content, { centered: true })
+
+  }
+
+  deleteMyComment(comment:PostComment){
+    this.commentSvc.deleteComment(comment)
+    .subscribe(() => {
+      let index = this.comments.findIndex(c => c.id == comment.id);
+      this.comments.splice(index, 1)
+    })
   }
 
 
