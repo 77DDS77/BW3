@@ -7,6 +7,7 @@ export class Post {
   date: Date;
   upvotes: number;
   edited:boolean;
+  showComments:boolean;
 
   constructor(
     ownerId: number,
@@ -21,5 +22,6 @@ export class Post {
     this.date = new Date();
     this.upvotes = 0;
     this.edited = false;
+    this.showComments = false;
   }
 }

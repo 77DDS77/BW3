@@ -21,7 +21,7 @@ const routes: Routes = [
     canActivate: [NavigationGuard]
   },
   {
-    path: 'profile/:name',
+    path: 'profile/:slug',
     component: ProfileComponent,
     canActivate: [NavigationGuard]
   },
