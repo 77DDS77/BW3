@@ -15,8 +15,8 @@ export class PostComponent implements OnInit {
 
   public isCollapsed = true;
 
-  @Input() posts!:Post[]
-  users:User[] = [];
+  @Input() posts!: Post[]
+  users: User[] = [];
 
   constructor(
     private userSvc: UserService,
@@ -29,15 +29,15 @@ export class PostComponent implements OnInit {
     this.getUsers()
   }
 
-  getAvatar(users:User[], post:Post):string | undefined {
-    if(users && post){
+  getAvatar(users: User[], post: Post): string | undefined {
+    if (users && post) {
       return users.find(user => user.id == post.ownerId)?.avatar
     }
     return ''
   }
 
-  getSlug(users:User[], post:Post):string | undefined {
-    if(users && post){
+  getSlug(users: User[], post: Post): string | undefined {
+    if (users && post) {
       return users.find(user => user.id == post.ownerId)?.slug
     }
     return ''
@@ -46,25 +46,25 @@ export class PostComponent implements OnInit {
 
   getUsers(): void {
     this.userSvc.getAllUsers()
-    .subscribe(users => {
-      this.users = users;
-    })
+      .subscribe(users => {
+        this.users = users;
+      })
   }
 
-  deleteMyPost(post:Post){
+  deleteMyPost(post: Post) {
 
-      this.postSvc.deletePost(post)
-      .subscribe(() =>{
+    this.postSvc.deletePost(post)
+      .subscribe(() => {
         let index = this.posts.findIndex(p => p.id === post.id)
         this.posts.splice(index, 1)
       })
 
   }
 
-  openVerticallyCentered(content:any, post:Post) {
-    if(this.auth.getLoggedUser().id == post.ownerId){
+  openVerticallyCentered(content: any, post: Post) {
+    if (this.auth.getLoggedUser().id == post.ownerId) {
       this.modalService.open(content, { centered: true })
-    }else{
+    } else {
       alert('You can t delete other users post')
     }
   }
