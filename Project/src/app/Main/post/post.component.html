@@ -35,9 +35,11 @@
         </div>
 
     </div>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="!post.showComments" class="comments-container">
 
+      <app-comments  *ngIf="post.showComments" class="container-sm-fluid d-flex flex-column align-items-center" [postId]="post.id"></app-comments>
+    </div>
 
-      <app-comments *ngIf="post.showComments" class="container-sm-fluid d-flex flex-column align-items-center" [postId]="post.id"></app-comments>
 
 
 
