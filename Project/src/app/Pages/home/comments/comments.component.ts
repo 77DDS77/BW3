@@ -18,8 +18,6 @@ export class CommentsComponent implements OnInit {
   ngOnInit(): void {
     this.commentSvc.getCommentByPost(this.postId).subscribe(
       res => {this.comments = res
-      console.log(this.comments)
-      
 
   })
   }

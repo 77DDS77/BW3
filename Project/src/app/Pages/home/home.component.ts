@@ -27,14 +27,10 @@ export class HomeComponent implements OnInit {
 
 
   getPosts() {
-    this.postSvc.getAllPosts().subscribe(
-      {
-        next: res => {
-          this.posts = res;
-        },
-        error: error => console.log(error)
-      }
-    )
+    this.postSvc.getAllPosts()
+    .subscribe(posts => {
+      this.posts = posts;
+    })
   }
 
   toggleNewPost() {

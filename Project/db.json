@@ -5,7 +5,7 @@
       "name": "Mario",
       "lastname": "Rossi",
       "username": "Mr.RedXXX",
-      "avatar": "male",
+      "avatar": "../../../../assets/gender-photo/male.svg",
       "email": "mario.rossi@gmail.com",
       "password": "123456"
     },
@@ -18,26 +18,38 @@
       "slug": "dds",
       "avatar": "../../../../assets/gender-photo/male.svg",
       "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$ZxbrLhQ30qk/xOrD/DlpC.ap8v5gNGGcufXU7O377wOKYwXz.Mibq",
+      "name": "Test",
+      "lastname": "Test",
+      "username": "TEST",
+      "slug": "test",
+      "avatar": "../../../../assets/gender-photo/female.svg",
+      "id": 3
     }
   ],
   "posts": [
     {
-      "id": 1,
       "ownerId": 2,
-      "title": "Post 1",
-      "content": "Content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1 content 1",
-      "date": "2022-09-18T09:32:57.507Z",
-      "upvotes": 217,
-      "edited": false
+      "ownerName": "DDS",
+      "title": "Titlo di prova",
+      "content": "Contenuto di prova",
+      "date": "2022-09-20T10:05:00.816Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "ownerId": 1,
-      "title": "Post 2",
-      "content": "Content 2",
-      "date": "2022-09-18T16:21:57.507Z",
-      "upvotes": 2,
-      "edited": false
+      "ownerId": 2,
+      "ownerName": "DDS",
+      "title": "Titlo di prova",
+      "content": "Contenuto di prova",
+      "date": "2022-09-20T10:05:00.816Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 2
     },
     {
       "ownerId": 2,
@@ -98,6 +110,16 @@
       "upvotes": 0,
       "edited": false,
       "id": 8
+    },
+    {
+      "ownerId": 3,
+      "ownerName": "TEST",
+      "title": "Ciao",
+      "content": "Post da utente test",
+      "date": "2022-09-21T10:11:34.895Z",
+      "upvotes": 0,
+      "edited": false,
+      "id": 9
     }
   ],
   "comments": [

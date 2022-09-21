@@ -3,7 +3,6 @@ import { Post } from 'src/app/Classes/post';
 import { User } from 'src/app/Classes/user';
 import { AuthService } from 'src/app/Services/auth.service';
 import { PostService } from 'src/app/Services/post.service';
-import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-profile',
