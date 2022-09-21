@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Post } from 'src/app/Classes/post';
 import { PostService } from 'src/app/Services/post.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,14 +28,10 @@ export class HomeComponent implements OnInit {
 
 
   getPosts() {
-    this.postSvc.getAllPosts().subscribe(
-      {
-        next: res => {
-          this.posts = res;
-        },
-        error: error => console.log(error)
-      }
-    )
+    this.postSvc.getAllPosts()
+    .subscribe(posts => {
+      this.posts = posts;
+    })
   }
 
   toggleNewPost() {

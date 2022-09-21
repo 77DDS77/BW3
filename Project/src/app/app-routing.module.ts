@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavigationGuard } from './Guards/navigation.guard';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
+import { HomeComponent } from './Pages/home/home.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 
 const routes: Routes = [
@@ -20,8 +21,13 @@ const routes: Routes = [
     canActivate: [NavigationGuard]
   },
   {
-    path: 'profile/:name',
+    path: 'profile/:slug',
     component: ProfileComponent,
+    canActivate: [NavigationGuard]
+  },
+  {
+    path: '**',
+    component: HomeComponent,
     canActivate: [NavigationGuard]
   }
 

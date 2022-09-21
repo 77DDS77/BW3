@@ -94,7 +94,7 @@ export class RegisterComponent implements OnInit {
         .subscribe((res) => {
           console.log(res);
           this.authSrv.saveAccessData(res);
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         });
     } else {
       console.log('errore form non valido');
