@@ -7,6 +7,7 @@ export class PostComment {
   date: Date;
   upvotes: number;
   edited: boolean;
+  isEditing: boolean;
 
   constructor(
     postId: number,
@@ -21,5 +22,6 @@ export class PostComment {
     this.date = new Date();
     this.upvotes = 0;
     this.edited = false;
+    this.isEditing = false
   }
 }

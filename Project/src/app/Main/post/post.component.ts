@@ -10,6 +10,8 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class PostComponent implements OnInit {
 
+  public isCollapsed = true;
+
   @Input() posts!:Post[]
   users:User[] = [];
 
