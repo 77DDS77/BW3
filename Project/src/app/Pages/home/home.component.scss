@@ -1,7 +1,7 @@
 .new-post-btn{
   width: 60px;
   height: 60px;
-  background-color: rgb(177, 246, 252);
+  background-color: rgba(174,221,205,255);
 
   position: sticky;
   bottom: 60px;
@@ -10,6 +10,9 @@
 border-radius: 50px;
 
 box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+svg{
+  color: white
 }
 
 
