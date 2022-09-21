@@ -22,13 +22,11 @@ export class CommentsComponent implements OnInit {
   ngOnInit(): void {
     this.commentSvc.getCommentByPost(this.postId).subscribe(
       res => {
-        this.comments = res
-        
+        this.comments = res     
     })
     this.form = new FormGroup({
       content: new FormControl(null, Validators.required)
     })
-
   }
 
 

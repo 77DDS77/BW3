@@ -1,11 +1,24 @@
 
 <h1 class="mt-3">Tutti i Posts</h1>
 
-<div *ngFor="let post of posts" class="card m-3">
-    <div class="card-head d-flex justify-content-row align-items-center">
-        <img class="avatar m-2"  src="../../../../assets/gender-photo/male.svg" alt="">
-        <!-- <img src={{findAuthor(post).avatar}} alt="avatar not working"> !-->
+<div *ngFor="let post of posts" class="card mx-auto">
+    <div class="card-head d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-row">
+        <img class="avatar m-2" [src]="getAvatar(users, post)">
         <h3 class="m-2">{{post.ownerName}}</h3>
+      </div>
+      <div>
+        <div ngbDropdown class="d-inline-block me-2">
+          <button type="button"
+            class="btn btn-outline-dark"
+            id="dropdownBasic1"
+            ngbDropdownToggle></button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="bg-dark">
+            <button class="text-white bg-dark" ngbDropdownItem>Edit Post</button>
+            <button class="text-white bg-dark" ngbDropdownItem (click)="openVerticallyCentered(content, post)">Delete Post</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-between">
@@ -22,8 +35,24 @@
         </div>
 
     </div>
+
+
+  <!-- Modal for delete post -->
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure?</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <p>You will not be able to retrieve your post!</p>
+        <button type="button" class="btn btn-danger" (click)="modal.close(deleteMyPost(post))">Yes delete it</button>
+      </div>
+    </ng-template>
+
+
     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="comments">
         <app-comments *ngIf="!isCollapsed" class="container-sm-fluid d-flex flex-column align-items-center" [postId]="post.id"></app-comments>
+
     </div>
 </div>
 
