@@ -2,17 +2,22 @@
 
 <div *ngFor="let comment of comments" class="card card-comment m-3">
     <div class="card-head d-flex justify-content-between">
-        <h2 class="m-3">{{ comment.title }}</h2>
-        <p class="m-3">{{ comment.date| date:'d MMM Y HH:mm' }}</p>
+        <h3 class="mx-3 fs-5 mt-2">{{ comment.title }}</h3>
+        <p class="mx-3">{{ comment.date| date:'d MMM Y HH:mm' }}</p>
     </div>
-    <div class="card-body">
+    <div class="card-body p-0">
         <div class="d-flex justify-content-between">
-            <p class="ms-2 m-3" *ngIf="!isEditing">{{ comment.content }}</p>
-            <input *ngIf="isEditing" class="ms-2 m-3 form-control" type="text">
+            <p class="mx-3 my-0" *ngIf="!isEditing">{{ comment.content }}</p>
+            <input class="ms-2 comment-input" *ngIf="isEditing" type="text">
         </div>
         <div class="btns d-flex justify-content-between">
-            <a class="btn btn-success mx-2">like</a>
-            <a *ngIf="editComment(comment)" (click)="editComment(comment)" class="btn btn-primary mx-2">edit</a>
+            <div class="upvote d-flex">
+                <a class="button">⬆</a>
+                <p>12</p>
+                <a class="button">⬇</a>
+
+            </div>
+            <a *ngIf="editComment(comment)" (click)="editComment(comment)" class="btn btn-warning m-0">Edit</a>
         </div>
     </div>
 
