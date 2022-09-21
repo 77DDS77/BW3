@@ -34,6 +34,13 @@ export class PostComponent implements OnInit {
     return ''
   }
 
+  getSlug(users:User[], post:Post):string | undefined {
+    if(users && post){
+      return users.find(user => user.id == post.ownerId)?.slug
+    }
+    return ''
+  }
+
 
   getUsers(): void {
     this.userSvc.getAllUsers()
