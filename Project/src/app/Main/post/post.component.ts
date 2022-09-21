@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { PostService } from 'src/app/Services/post.service';
 import { UserService } from 'src/app/Services/user.service';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -23,10 +25,14 @@ export class PostComponent implements OnInit {
     private postSvc: PostService,
     private modalService: NgbModal,
     private auth: AuthService
-  ) { }
+  ) {  }
 
   ngOnInit(): void {
     this.getUsers()
+  }
+
+  getTimeFromNow(date:Date):any{
+    return moment(date).fromNow()
   }
 
   getAvatar(users: User[], post: Post): string | undefined {

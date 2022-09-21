@@ -160,6 +160,17 @@
       "upvotes": 0,
       "edited": false,
       "id": 13
+    },
+    {
+      "ownerId": 2,
+      "ownerName": "DDS",
+      "title": "Test Moment",
+      "content": "Test di moment js",
+      "date": "2022-09-21T19:27:50.954Z",
+      "upvotes": 0,
+      "edited": false,
+      "showComments": false,
+      "id": 14
     }
   ],
   "comments": [
@@ -244,7 +255,7 @@
       "postId": 13,
       "ownerId": 2,
       "title": "DDS",
-      "content": "Ciao Fabi funziona!",
+      "content": "Ciao Fabi funziona!!",
       "date": "2022-09-21T14:24:24.593Z",
       "upvotes": 0,
       "edited": false,
@@ -272,6 +283,17 @@
       "edited": false,
       "isEditing": false,
       "id": 10
+    },
+    {
+      "postId": 14,
+      "ownerId": 2,
+      "title": "DDS",
+      "content": "test moment for comments and edited badge",
+      "date": "2022-09-21T19:31:21.418Z",
+      "upvotes": 0,
+      "edited": true,
+      "isEditing": false,
+      "id": 11
     }
   ]
 }

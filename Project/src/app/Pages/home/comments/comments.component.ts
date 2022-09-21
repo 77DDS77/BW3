@@ -6,6 +6,8 @@ import { Post } from 'src/app/Classes/post';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CommentService } from 'src/app/Services/comment.service';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -34,6 +36,9 @@ export class CommentsComponent implements OnInit {
     })
   }
 
+  getTimeFromNow(date:Date):any{
+    return moment(date).fromNow()
+  }
 
   getPostComments() {
     this.commentSvc.getCommentByPost(this.postId).subscribe(
@@ -49,6 +54,7 @@ export class CommentsComponent implements OnInit {
     if(comment.isEditing) {
       console.log("editato")
       comment.isEditing = false
+      comment.edited = true;
       this.commentSvc.editComment(comment)
       .subscribe(() => {
         console.log("edit completo")

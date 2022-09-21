@@ -2,7 +2,7 @@
 <div class="comment-form px-3">
     <form [formGroup]="form" (submit)="postComment()">
         <div class="form-floating my-2">
-            <textarea formControlName="content" type="text" class="form-control" id="floatingInput1">
+            <textarea formControlName="content" type="text" class="form-control mb-2" id="floatingInput1">
                   </textarea>
             <label for="floatingInput1">commento</label>
             <button class="w-100 btn btn btn-primary" type="submit">Post it</button>
@@ -13,9 +13,13 @@
 
 <div *ngFor="let comment of comments.reverse()" class="card card-comment m-3 p-2">
     <div class="card-head d-flex justify-content-between">
-        <h3 class="mx-3 fs-5 mt-2">{{ comment.title }}</h3>
-        <p *ngIf="comment.edited" class="edited-alert">edited</p>
-        <p class="mx-3">{{ comment.date| date:'d MMM Y HH:mm' }}</p>
+
+      <div class="d-flex align-items-center">
+        <h3 class="mx-3 fs-5 mt-2 fw-semibold">{{ comment.title }}</h3>
+        <span *ngIf="comment.edited" class="badge bg-danger">edited</span>
+      </div>
+
+        <p class="mx-3">{{ getTimeFromNow(comment.date) }}</p>
 
         <div  *ngIf="canEditComment(comment)" ngbDropdown class="d-inline-block me-2">
           <button type="button"
@@ -39,9 +43,14 @@
     </div>
     <div class="card-body p-0">
         <div class="d-flex justify-content-between">
+          <!-- Qua e quando clicco su edit comment -->
             <p class="mx-3 my-0" *ngIf="!comment.isEditing">{{ comment.content }}</p>
-            <input [(ngModel)]="comment.content" class="ms-2 comment-input" [value]="comment.content"
-                *ngIf="comment.isEditing" type="text">
+
+            <textarea [(ngModel)]="comment.content"
+            class="ms-2 comment-input"
+            [value]="comment.content"
+            *ngIf="comment.isEditing" type="text"></textarea>
+
         </div>
         <div class="btns d-flex justify-content-between">
             <div class="upvote d-flex">
