@@ -182,7 +182,8 @@
       "content": "Content 2",
       "date": "2022-09-18T09:32:57.507Z",
       "upvotes": 23,
-      "edited": false
+      "edited": false,
+      "isEditing": false
     },
     {
       "id": 3,
@@ -192,7 +193,8 @@
       "content": "Content 3",
       "date": "2022-09-18T09:32:57.507Z",
       "upvotes": 22,
-      "edited": false
+      "edited": false,
+      "isEditing": false
     },
     {
       "postId": 8,
