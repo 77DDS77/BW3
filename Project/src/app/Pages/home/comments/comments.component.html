@@ -2,7 +2,7 @@
 <div class="comment-form px-3">
     <form [formGroup]="form" (submit)="postComment()">
         <div class="form-floating my-2">
-            <textarea formControlName="content" type="text" class="form-control" id="floatingInput1"> 
+            <textarea formControlName="content" type="text" class="form-control" id="floatingInput1">
                   </textarea>
             <label for="floatingInput1">commento</label>
             <button class="w-100 btn btn btn-primary" type="submit">Post it</button>
@@ -11,11 +11,31 @@
     </form>
 </div>
 
-<div *ngFor="let comment of comments.reverse()" class="card card-comment m-3">
+<div *ngFor="let comment of comments.reverse()" class="card card-comment m-3 p-2">
     <div class="card-head d-flex justify-content-between">
         <h3 class="mx-3 fs-5 mt-2">{{ comment.title }}</h3>
         <p *ngIf="comment.edited" class="edited-alert">edited</p>
         <p class="mx-3">{{ comment.date| date:'d MMM Y HH:mm' }}</p>
+
+        <div  *ngIf="canEditComment(comment)" ngbDropdown class="d-inline-block me-2">
+          <button type="button"
+            class="btn btn-outline-dark"
+            id="dropdownBasic1"
+            ngbDropdownToggle></button>
+          <div
+            ngbDropdownMenu class="bg-dark">
+
+            <button (click)="changeComment(comment)"
+              class="text-white bg-dark"
+              ngbDropdownItem>Edit Post</button>
+
+            <button class="text-white bg-dark"
+              (click)="openVerticallyCentered(content, comment)"
+              ngbDropdownItem>Delete Post</button>
+
+          </div>
+        </div>
+
     </div>
     <div class="card-body p-0">
         <div class="d-flex justify-content-between">
@@ -30,8 +50,20 @@
                 <a class="button">⬇</a>
 
             </div>
-            <a *ngIf="canEditComment(comment)" (click)="changeComment(comment)" class="btn btn-warning m-0">Edit</a>
+            <!-- <a *ngIf="canEditComment(comment)" (click)="changeComment(comment)" class="btn btn-warning m-0">Edit</a> -->
         </div>
     </div>
+
+        <!-- Modal for delete comment -->
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Are you sure?</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+          </div>
+          <div class="modal-body">
+            <p>You will not be able to retrieve your post!</p>
+            <button type="button" class="btn btn-danger" (click)="modal.close(deleteMyComment(comment))">Yes delete it</button>
+          </div>
+        </ng-template>
 
 </div>

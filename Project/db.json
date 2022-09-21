@@ -239,6 +239,39 @@
       "edited": false,
       "isEditing": false,
       "id": 7
+    },
+    {
+      "postId": 13,
+      "ownerId": 2,
+      "title": "DDS",
+      "content": "Ciao Fabi funziona!",
+      "date": "2022-09-21T14:24:24.593Z",
+      "upvotes": 0,
+      "edited": false,
+      "isEditing": false,
+      "id": 8
+    },
+    {
+      "postId": 13,
+      "ownerId": 3,
+      "title": "Fabi",
+      "content": "Ciao Davide, non mi interessa!",
+      "date": "2022-09-21T14:45:17.889Z",
+      "upvotes": 0,
+      "edited": false,
+      "isEditing": false,
+      "id": 9
+    },
+    {
+      "postId": 7,
+      "ownerId": 3,
+      "title": "Fabi",
+      "content": "MANDRAKATA!",
+      "date": "2022-09-21T14:46:48.583Z",
+      "upvotes": 0,
+      "edited": false,
+      "isEditing": false,
+      "id": 10
     }
   ]
 }
