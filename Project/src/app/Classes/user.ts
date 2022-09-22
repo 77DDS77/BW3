@@ -6,7 +6,7 @@ export class User {
   slug:string;
   avatar:string;
   email:string;
-  password:string;
+  password:string | undefined;
 
   constructor(
     name:string,
@@ -14,7 +14,7 @@ export class User {
     username:string,
     avatar:string,
     email:string,
-    password:string
+    password:string | undefined
     ) {
 
       this.name = name;

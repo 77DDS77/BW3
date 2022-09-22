@@ -1,37 +1,68 @@
 
 
 <div *ngFor="let post of posts" class="card mx-auto my-3">
+      <!-- post header -->
     <div class="card-head d-flex justify-content-between align-items-center">
       <div class="d-flex justify-content-row align-items-center">
         <img class="avatar m-2" [src]="getAvatar(users, post)">
         <a [routerLink]="['/profile', getSlug(users, post)]" class="nav-link fw-semibold fs-4 m-2">{{post.ownerName}}</a>
       </div>
       <div>
-        <div ngbDropdown class="d-inline-block me-2">
+        <!-- drop down -->
+        <div *ngIf="checkIfUserCan(post)" ngbDropdown class="d-inline-block me-2">
           <button type="button"
             class="btn btn-outline-dark"
             id="dropdownBasic1"
             ngbDropdownToggle></button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="bg-dark">
-            <button class="text-white bg-dark" ngbDropdownItem>Edit Post</button>
+            <button class="text-white bg-dark" *ngIf="post.isEditing == false" ngbDropdownItem (click)="editPost(post)">Edit Post</button>
             <button class="text-white bg-dark" ngbDropdownItem (click)="openVerticallyCentered(content, post)">Delete Post</button>
           </div>
         </div>
       </div>
     </div>
+    <!-- post body -->
     <div class="card-body">
+      <!-- main comment -->
+      <div *ngIf="post.isEditing == false">
         <div class="d-flex justify-content-between">
-            <h5 class="card-title mx-2 fw-semibold">{{ post.title }}</h5>
-            <p class="card-title mx-2" >{{getTimeFromNow(post.date)}}</p>
+          <h5 class="card-title mx-2 fw-semibold">{{ post.title }} <span *ngIf="post.edited" class="badge bg-danger fs-7 fw-normal">edited</span></h5>
+          <p class="card-title mx-2" >{{getTimeFromNow(post.date)}}</p>
         </div>
         <p class="card-text mx-2">{{ post.content }}</p>
 
         <div class="btns d-flex justify-content-between">
-            <a class="btn btn-success mx-2">like</a>
-
-            <a (click)="post.showComments = !post.showComments" class="btn btn-primary mx-2">Comments</a>
-
+          <a class="btn btn-success mx-2">like</a>
+          <a (click)="post.showComments = !post.showComments" class="btn btn-primary mx-2">Comments</a>
         </div>
+      </div>
+
+      <!-- edit comment form -->
+      <div *ngIf="post.isEditing" class="my-auto form-floating">
+
+        <form>
+
+          <div class="form-floating mb-2">
+            <input [(ngModel)]="post.editingValue[0]" name="title"
+            type="text" class="form-control"
+            id="floatingInput1" placeholder="Title">
+            <label for="floatingInput1">Title</label>
+          </div>
+
+          <div class="form-floating mb-2">
+            <input [(ngModel)]="post.editingValue[1]" name="content"
+            type="text" class="form-control"
+            id="floatingInput2" placeholder="content">
+            <label for="floatingInput2">Content</label>
+          </div>
+
+
+          <button class="btn btn-primary" (click)="submitEdit(post)">Confirm edit</button>
+          <button class="btn btn-warning ms-2" (click)="cancelEdit(post)">Cancel edit</button>
+
+        </form>
+
+      </div>
 
     </div>
     <div #collapse="ngbCollapse" [(ngbCollapse)]="!post.showComments" class="comments-container">

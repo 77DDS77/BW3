@@ -7,6 +7,7 @@ import { PostService } from 'src/app/Services/post.service';
 import { UserService } from 'src/app/Services/user.service';
 
 import * as moment from 'moment';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -56,6 +57,28 @@ export class PostComponent implements OnInit {
         this.users = users;
       })
   }
+
+  checkIfUserCan(post: Post):boolean{
+    return post.ownerId == this.auth.getLoggedUser().id
+  }
+
+  editPost(post: Post){
+    post.isEditing = true;
+  }
+
+  cancelEdit(post: Post){
+    post.isEditing = false;
+    post.editingValue = [post.title, post.content]
+  }
+
+  submitEdit(post:Post){
+    post.title = post.editingValue[0];
+    post.content = post.editingValue[1]
+    post.edited = true;
+    post.isEditing = false;
+    this.postSvc.editPost(post, post.id)
+  }
+
 
   deleteMyPost(post: Post) {
 
