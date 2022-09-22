@@ -255,10 +255,10 @@
       "postId": 13,
       "ownerId": 2,
       "title": "DDS",
-      "content": "Ciao Fabi funziona!!",
+      "content": "Ciao Fabi funziona!! un botto",
       "date": "2022-09-21T14:24:24.593Z",
       "upvotes": 0,
-      "edited": false,
+      "edited": true,
       "isEditing": false,
       "id": 8
     },
@@ -288,12 +288,23 @@
       "postId": 14,
       "ownerId": 2,
       "title": "DDS",
-      "content": "test moment for comments and edited badge",
+      "content": "test moment per comments and edited opsdofsdifo",
       "date": "2022-09-21T19:31:21.418Z",
       "upvotes": 0,
       "edited": true,
       "isEditing": false,
       "id": 11
+    },
+    {
+      "postId": 1,
+      "ownerId": 2,
+      "title": "DDS",
+      "content": "adadsa",
+      "date": "2022-09-22T07:25:48.930Z",
+      "upvotes": 0,
+      "edited": false,
+      "isEditing": false,
+      "id": 12
     }
   ]
 }

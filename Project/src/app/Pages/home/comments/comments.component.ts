@@ -56,8 +56,8 @@ export class CommentsComponent implements OnInit {
       comment.isEditing = false
       comment.edited = true;
       this.commentSvc.editComment(comment)
-      .subscribe(() => {
-        console.log("edit completo")
+      .subscribe((comment) => {
+        console.log(comment)
       })
 
     } else {
