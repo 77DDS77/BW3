@@ -1,78 +1,71 @@
-
 <div class="comment-form px-3">
-    <form [formGroup]="form" (submit)="postComment()">
-        <div class="form-floating my-2">
-            <textarea formControlName="content" type="text" class="form-control mb-2" id="floatingInput1">
+  <form [formGroup]="form" (submit)="postComment()">
+    <div class="form-floating my-2">
+      <textarea formControlName="content" type="text" class="form-control mb-2" id="floatingInput1">
                   </textarea>
-            <label for="floatingInput1">commento</label>
-            <button class="w-100 btn btn btn-primary" type="submit">Post it</button>
-        </div>
-        <label *ngIf="formIsValid == false" class="text-danger">*Form is invalid</label>
-    </form>
+      <label for="floatingInput1">commento</label>
+      <button class="w-100 btn btn btn-primary" type="submit">Post it</button>
+    </div>
+    <label *ngIf="formIsValid == false" class="text-danger">*Form is invalid</label>
+  </form>
 </div>
 
 <div *ngFor="let comment of comments.reverse()" class="card card-comment m-3 p-2">
-    <div class="card-head d-flex justify-content-between">
+  <div class="card-head d-flex justify-content-between">
 
-      <div class="d-flex align-items-center">
-        <h3 class="mx-3 fs-5 mt-2 fw-semibold">{{ comment.title }}</h3>
-        <span *ngIf="comment.edited" class="badge bg-danger">edited</span>
+    <div class="d-flex align-items-center">
+      <h3 class="mx-3 fs-5 mt-2 fw-semibold">{{ comment.title }}</h3>
+      <span *ngIf="comment.edited" class="badge bg-danger">edited</span>
+    </div>
+
+    <p class="mx-3">{{ getTimeFromNow(comment.date) }}</p>
+
+    <div *ngIf="canEditComment(comment)" ngbDropdown class="d-inline-block me-2">
+      <button type="button" class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle></button>
+      <div ngbDropdownMenu class="bg-dark">
+
+        <button (click)="comment.isEditing = true" class="text-white bg-dark" ngbDropdownItem>Edit Commment</button>
+
+        <button class="text-white bg-dark" (click)="openVerticallyCentered(content, comment)" ngbDropdownItem>Delete
+          Post</button>
+
       </div>
-
-        <p class="mx-3">{{ getTimeFromNow(comment.date) }}</p>
-
-        <div  *ngIf="canEditComment(comment)" ngbDropdown class="d-inline-block me-2">
-          <button type="button"
-            class="btn btn-outline-dark"
-            id="dropdownBasic1"
-            ngbDropdownToggle></button>
-          <div
-            ngbDropdownMenu class="bg-dark">
-
-            <button (click)="changeComment(comment)"
-              class="text-white bg-dark"
-              ngbDropdownItem>Edit Post</button>
-
-            <button class="text-white bg-dark"
-              (click)="openVerticallyCentered(content, comment)"
-              ngbDropdownItem>Delete Post</button>
-
-          </div>
-        </div>
-
-    </div>
-    <div class="card-body p-0">
-        <div class="d-flex justify-content-between">
-          <!-- Qua e quando clicco su edit comment -->
-            <p class="mx-3 my-0" *ngIf="!comment.isEditing">{{ comment.content }}</p>
-
-            <textarea [(ngModel)]="comment.content"
-            class="ms-2 comment-input"
-            [value]="comment.content"
-            *ngIf="comment.isEditing" type="text"></textarea>
-
-        </div>
-        <div class="btns d-flex justify-content-between">
-            <div class="upvote d-flex">
-                <a class="button">⬆</a>
-                <p>12</p>
-                <a class="button">⬇</a>
-
-            </div>
-            <!-- <a *ngIf="canEditComment(comment)" (click)="changeComment(comment)" class="btn btn-warning m-0">Edit</a> -->
-        </div>
     </div>
 
-        <!-- Modal for delete comment -->
-        <ng-template #content let-modal>
-          <div class="modal-header">
-            <h4 class="modal-title">Are you sure?</h4>
-            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-          </div>
-          <div class="modal-body">
-            <p>You will not be able to retrieve your post!</p>
-            <button type="button" class="btn btn-danger" (click)="modal.close(deleteMyComment(comment))">Yes delete it</button>
-          </div>
-        </ng-template>
+  </div>
+  <div class="card-body p-0">
+
+      <!-- Qua e quando clicco su edit comment -->
+      <p class="mx-3 my-0" *ngIf="!comment.isEditing">{{ comment.content }}</p>
+      <form (submit)="changeComment(comment)" *ngIf="comment.isEditing" class="form-edit-comment">
+        <textarea [(ngModel)]="comment.content" name="edit-comment" class="ms-2 comment-input form-control" [value]="comment.content"
+           type="text"></textarea>
+        <button class="btn btn-success edit-button">edit</button>
+      </form>
+
+
+    <div class="btns d-flex justify-content-between">
+      <div class="upvote d-flex">
+        <a class="button">⬆</a>
+        <p>12</p>
+        <a class="button">⬇</a>
+
+      </div>
+      <!-- <a *ngIf="canEditComment(comment)" (click)="changeComment(comment)" class="btn btn-warning m-0">Edit</a> -->
+    </div>
+  </div>
+
+  <!-- Modal for delete comment -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Are you sure?</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>You will not be able to retrieve your post!</p>
+      <button type="button" class="btn btn-danger" (click)="modal.close(deleteMyComment(comment))">Yes delete
+        it</button>
+    </div>
+  </ng-template>
 
 </div>
