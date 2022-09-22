@@ -32,7 +32,17 @@
         <p class="card-text mx-2">{{ post.content }}</p>
 
         <div class="btns d-flex justify-content-between">
-          <a class="btn btn-success mx-2">like</a>
+          <div>
+
+            <a class="btn mx-2" [ngClass]="post.upvotes.includes(userId) ? 'btn-success' : ''"
+            (click)="upvote(post)"><i class="gg-arrow-up-o"></i></a>
+
+            <span>{{post.upvotes.length - post.downvotes.length}}</span>
+
+            <a class="btn mx-2" [ngClass]="post.downvotes.includes(userId) ? 'btn-danger' : ''"
+            (click)="downvote(post)"><i class="gg-arrow-down-o"></i></a>
+
+          </div>
           <a (click)="post.showComments = !post.showComments" class="btn btn-primary mx-2">Comments</a>
         </div>
       </div>

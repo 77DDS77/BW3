@@ -38,7 +38,11 @@
       "title": "EDIT TEST worka 1",
       "content": "Test for editing",
       "date": "2022-09-22T09:32:46.499Z",
-      "upvotes": 0,
+      "upvotes": [],
+      "downvotes": [
+        2,
+        3
+      ],
       "editingValue": [
         "EDIT TEST worka 1",
         "Test for editing"
@@ -54,7 +58,11 @@
       "title": "Ciao!",
       "content": "Questo e' il primo post con le proprieta' nuove! Ora puoi editarmi",
       "date": "2022-09-22T09:57:03.294Z",
-      "upvotes": 0,
+      "upvotes": [
+        2,
+        3
+      ],
+      "downvotes": [],
       "editingValue": [
         "Ciao!",
         "Questo e' il primo post con le proprieta' nuove! Ora puoi editarmi"
