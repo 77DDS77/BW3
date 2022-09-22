@@ -38,7 +38,11 @@
       "title": "EDIT TEST worka 1",
       "content": "Test for editing",
       "date": "2022-09-22T09:32:46.499Z",
-      "upvotes": 0,
+      "upvotes": [],
+      "downvotes": [
+        2,
+        3
+      ],
       "editingValue": [
         "EDIT TEST worka 1",
         "Test for editing"
@@ -54,7 +58,11 @@
       "title": "Ciao!",
       "content": "Questo e' il primo post con le proprieta' nuove! Ora puoi editarmi",
       "date": "2022-09-22T09:57:03.294Z",
-      "upvotes": 0,
+      "upvotes": [
+        2,
+        3
+      ],
+      "downvotes": [],
       "editingValue": [
         "Ciao!",
         "Questo e' il primo post con le proprieta' nuove! Ora puoi editarmi"
@@ -67,11 +75,14 @@
   "comments": [
     {
       "postId": 2,
-      "ownerId": 2,
-      "title": "DDS",
-      "content": "E puoi pure editare i commenti",
-      "date": "2022-09-22T09:57:22.475Z",
-      "upvotes": 0,
+      "ownerId": 3,
+      "title": "Fabi",
+      "content": "Adesso ci sono gli upvote anche sui commenti!!!",
+      "date": "2022-09-22T12:57:20.940Z",
+      "upvotes": [
+        3
+      ],
+      "downvotes": [],
       "edited": false,
       "isEditing": false,
       "id": 1

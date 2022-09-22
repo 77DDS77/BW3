@@ -19,6 +19,7 @@ export class CommentsComponent implements OnInit {
   comments: PostComment[] = []
   form!: FormGroup;
   formIsValid!: boolean
+  userId:number = this.authSvc.getLoggedUser().id;
 
   constructor(
     private commentSvc:CommentService,
@@ -93,6 +94,49 @@ export class CommentsComponent implements OnInit {
       let index = this.comments.findIndex(c => c.id == comment.id);
       this.comments.splice(index, 1)
     })
+  }
+
+  upvote(comment:PostComment){
+    if(comment.upvotes.includes(this.userId)){
+      // se trovo id su array up tolgo id
+      let index = comment.upvotes.findIndex(u => u == this.userId)
+      comment.upvotes.splice(index, 1)
+      this.commentSvc.editComment(comment).subscribe(()=>{});
+    }else{
+      // non torvo id user su up[]
+      if(comment.downvotes.includes(this.userId)){
+        // se trovo su down, tolgo da down e aggiungo su up
+        let index = comment.downvotes.findIndex(u => u == this.userId)
+        comment.downvotes.splice(index, 1)
+        comment.upvotes.push(this.userId)
+        this.commentSvc.editComment(comment).subscribe(()=>{});
+
+      }else{
+        // non e' ne su up ne su down, aggiungo su up
+        comment.upvotes.push(this.userId)
+        this.commentSvc.editComment(comment).subscribe(()=>{});
+
+      }
+    }
+  }
+
+  downvote(comment:PostComment){
+
+    if(comment.downvotes.includes(this.userId)){
+      let index = comment.downvotes.findIndex(u => u == this.userId)
+      comment.downvotes.splice(index, 1)
+      this.commentSvc.editComment(comment).subscribe(()=>{});
+    }else{
+      if(comment.upvotes.includes(this.userId)){
+        let index = comment.upvotes.findIndex(u => u == this.userId)
+        comment.upvotes.splice(index, 1)
+        comment.downvotes.push(this.userId)
+        this.commentSvc.editComment(comment).subscribe(()=>{});
+      }else{
+        comment.downvotes.push(this.userId)
+        this.commentSvc.editComment(comment).subscribe(()=>{});
+      }
+    }
   }
 
 

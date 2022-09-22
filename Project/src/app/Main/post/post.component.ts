@@ -20,6 +20,7 @@ export class PostComponent implements OnInit {
 
   @Input() posts!: Post[]
   users: User[] = [];
+  userId = this.auth.getLoggedUser().id;
 
   constructor(
     private userSvc: UserService,
@@ -95,6 +96,49 @@ export class PostComponent implements OnInit {
       this.modalService.open(content, { centered: true })
     } else {
       alert('You can t delete other users post')
+    }
+  }
+
+  upvote(post:Post){
+    if(post.upvotes.includes(this.userId)){
+      // se trovo id su array up tolgo id
+      let index = post.upvotes.findIndex(u => u == this.userId)
+      post.upvotes.splice(index, 1)
+      this.postSvc.editPost(post, post.id).subscribe(()=>{});
+    }else{
+      // non torvo id user su up[]
+      if(post.downvotes.includes(this.userId)){
+        // se trovo su down, tolgo da down e aggiungo su up
+        let index = post.downvotes.findIndex(u => u == this.userId)
+        post.downvotes.splice(index, 1)
+        post.upvotes.push(this.userId)
+        this.postSvc.editPost(post, post.id).subscribe(()=>{});
+
+      }else{
+        // non e' ne su up ne su down, aggiungo su up
+        post.upvotes.push(this.userId)
+        this.postSvc.editPost(post, post.id).subscribe(()=>{});
+
+      }
+    }
+  }
+
+  downvote(post:Post){
+
+    if(post.downvotes.includes(this.userId)){
+      let index = post.downvotes.findIndex(u => u == this.userId)
+      post.downvotes.splice(index, 1)
+      this.postSvc.editPost(post, post.id).subscribe(()=>{});
+    }else{
+      if(post.upvotes.includes(this.userId)){
+        let index = post.upvotes.findIndex(u => u == this.userId)
+        post.upvotes.splice(index, 1)
+        post.downvotes.push(this.userId)
+        this.postSvc.editPost(post, post.id).subscribe(()=>{});
+      }else{
+        post.downvotes.push(this.userId)
+        this.postSvc.editPost(post, post.id).subscribe(()=>{});
+      }
     }
   }
 

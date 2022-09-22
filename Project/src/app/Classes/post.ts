@@ -5,7 +5,8 @@ export class Post {
   title: string;
   content: string;
   date: Date;
-  upvotes: number;
+  upvotes: number[];
+  downvotes: number[];
   isEditing:boolean = false;
   editingValue!: string[];
   edited:boolean;
@@ -22,7 +23,8 @@ export class Post {
     this.title = title;
     this.content = content;
     this.date = new Date();
-    this.upvotes = 0;
+    this.upvotes = [];
+    this.downvotes = [];
     this.editingValue = [this.title, this.content];
     this.edited = false;
     this.showComments = false;
