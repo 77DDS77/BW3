@@ -5,7 +5,8 @@ export class PostComment {
   title:string;
   content:string;
   date: Date;
-  upvotes: number;
+  upvotes:number[];
+  downvotes:number[];
   edited: boolean;
   isEditing: boolean;
 
@@ -20,7 +21,8 @@ export class PostComment {
     this.title = title;
     this.content = content;
     this.date = new Date();
-    this.upvotes = 0;
+    this.upvotes = [];
+    this.downvotes = [];
     this.edited = false;
     this.isEditing = false
   }
