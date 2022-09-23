@@ -50,7 +50,7 @@
       <!-- edit comment form -->
       <div *ngIf="post.isEditing" class="my-auto form-floating">
 
-        <form>
+        <form (submit)="submitEdit(post)">
 
           <div class="form-floating mb-2">
             <input [(ngModel)]="post.editingValue[0]" name="title"
@@ -67,7 +67,7 @@
           </div>
 
 
-          <button class="btn btn-primary" (click)="submitEdit(post)">Confirm edit</button>
+          <button class="btn btn-primary" type="submit">Confirm edit</button>
           <button class="btn btn-warning ms-2" (click)="cancelEdit(post)">Cancel edit</button>
 
         </form>
@@ -75,7 +75,7 @@
       </div>
 
     </div>
-    <div #collapse="ngbCollapse" [(ngbCollapse)]="!post.showComments" class="comments-container">
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="!post.showComments" class="comments-container pb-2">
 
       <app-comments  *ngIf="post.showComments" class="container-sm-fluid d-flex flex-column align-items-center" [postId]="post.id"></app-comments>
     </div>

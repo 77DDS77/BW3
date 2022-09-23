@@ -18,7 +18,11 @@ export class NavComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private modalService: NgbModal
-  ) { }
+  ) {
+    this.router.events.subscribe((event:any)=>{
+      this.userNameParam = this.auth.isUserLogged() ? this.auth.getLoggedUser().slug : '';
+    })
+  }
 
   ngOnInit(): void {
   }

@@ -33,8 +33,12 @@ export class ProfileComponent implements OnInit {
     private route:ActivatedRoute,
     private router:Router,
     private userSvc: UserService,
-    private modalService: NgbModal
-  ) { }
+    private modalService: NgbModal,
+  ) {
+    this.router.events.subscribe((event) => {
+      this.ngOnInit();
+    })
+   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params:any) => {

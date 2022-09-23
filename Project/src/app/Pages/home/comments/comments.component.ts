@@ -53,17 +53,21 @@ export class CommentsComponent implements OnInit {
 
   changeComment(comment: PostComment): void {
     if(comment.isEditing) {
-      console.log("editato")
       comment.isEditing = false
       comment.edited = true;
       this.commentSvc.editComment(comment)
-      .subscribe((comment) => {
-        console.log(comment)
-      })
-
+      .subscribe(() => {})
     } else {
       comment.isEditing = !comment.isEditing
     }
+  }
+
+  cancelEdit(comment: PostComment): void {
+    comment.isEditing = false;
+    this.commentSvc.getCommentById(comment.id).subscribe((com) => {
+      comment.content = com.content;
+    })
+
   }
 
   postComment() {

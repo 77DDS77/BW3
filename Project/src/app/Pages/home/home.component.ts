@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   posts:Post[] = []
   newPostPage: boolean = false
+  sortByUpvotes: boolean = false;
 
   constructor(private postSvc: PostService, private router: Router) {
     this.router.events.subscribe((event) => {
@@ -24,13 +25,30 @@ export class HomeComponent implements OnInit {
 
   }
 
-
+  sortPostsByUpvotes(){
+    this.sortByUpvotes = !this.sortByUpvotes
+    if(this.sortByUpvotes == true){
+      this.postSvc.getAllPosts()
+      .subscribe(posts => {
+        this.posts = posts.sort((a, b) => (a.upvotes.length - a.downvotes.length) - (b.upvotes.length - b.downvotes.length)).reverse()
+      })
+    }else{
+      this.postSvc.getAllPosts()
+      .subscribe(posts => {
+        this.posts = posts.reverse()
+      })
+    }
+  }
 
 
   getPosts() {
     this.postSvc.getAllPosts()
     .subscribe(posts => {
-      this.posts = posts;
+      if(this.sortByUpvotes == true){
+        this.posts = posts.sort((a, b) => (a.upvotes.length - a.downvotes.length) - (b.upvotes.length - b.downvotes.length)).reverse()
+      }else{
+        this.posts = posts.reverse()
+      }
     })
   }
 

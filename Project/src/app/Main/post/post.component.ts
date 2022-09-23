@@ -7,7 +7,6 @@ import { PostService } from 'src/app/Services/post.service';
 import { UserService } from 'src/app/Services/user.service';
 
 import * as moment from 'moment';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -18,7 +17,7 @@ export class PostComponent implements OnInit {
 
   public isCollapsed = true;
 
-  @Input() posts!: Post[]
+  @Input() posts!: Post[];
   users: User[] = [];
   userId = this.auth.getLoggedUser().id;
 
@@ -77,7 +76,7 @@ export class PostComponent implements OnInit {
     post.content = post.editingValue[1]
     post.edited = true;
     post.isEditing = false;
-    this.postSvc.editPost(post, post.id)
+    this.postSvc.editPost(post, post.id).subscribe(() => {})
   }
 
 

@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(5),
       ]),
     });
-    console.log(this.form);
   }
 
   checkValidity(input:string):boolean{
@@ -92,7 +91,6 @@ export class RegisterComponent implements OnInit {
           )
         )
         .subscribe((res) => {
-          console.log(res);
           this.authSrv.saveAccessData(res);
           this.router.navigate(['/home']);
         });

@@ -8,7 +8,6 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Interceptors/auth.interceptor';
-import { FooterComponent } from './Main/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { NavComponent } from './Main/nav/nav.component';
@@ -20,7 +19,6 @@ import { HomeModule } from './Pages/home/home.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent,
     ProfileComponent,
     NavComponent
   ],
